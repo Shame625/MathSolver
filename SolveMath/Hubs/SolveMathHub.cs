@@ -41,7 +41,7 @@ namespace SignalR.Hubs
 
         public async Task SendAnswer(int message)
         {
-            if(CurrentGame.IsCorrect(message))
+            if(CurrentGame.IsCorrect(message) && !CurrentGame.currentEquation.hasWinner)
             {
                 CurrentGame.currentEquation.hasWinner = true;
                 CountdownToNewGame();
